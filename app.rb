@@ -21,6 +21,7 @@ get '/square/results' do
 end
 #TEMPLATE
 
+#
 get("/square_root/new") do
   erb(:new_root_calc)
 end
@@ -30,6 +31,21 @@ get '/square_root/results' do
   @the_result = Math.sqrt(@the_num)
   erb(:root_results)
 end
+#
+
+#RANDOM
+get("/random/new") do
+  erb(:random_calc)
+end
+
+get '/random/results' do
+  @minimum = params.fetch("users_number").to_f
+  @maximum = params.fetch("users_number").to_f
+
+  @result = rand(@minimum..@maximum)
+  erb(:random_results)
+end
+
 
 get("/") do
   "
